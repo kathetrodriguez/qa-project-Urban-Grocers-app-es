@@ -1,31 +1,22 @@
 import requests
-from configuration import URL_SERVICE, CREATE_USER_PATH, KITS_PATH, CARDS_PATH
+from data import user_info, card_id_1, auth_token
+from configuration import URL_SERVICE, CREATE_USER_PATH, KITS_PATH
 
 def create_user():
-    user_data = {
-    "firstName": "Angela",
-    "phone": "+573186542187",
-    "address": "cra 34 n52 - 21"
-    }
-    response = requests.post(f"{URL_SERVICE}{CREATE_USER_PATH}",json=user_data)
-    response.raise_for_status()
-    return response.json()["authToken"]
-
-def create_kit(auth_token, kit_data):
+    url = URL_SERVICE + CREATE_USER_PATH
     headers = {
-        "Authorization": f"Bearer {auth_token}"
+        "Content-Type": "application/json"
     }
+    response = requests.post(url, json=user_info, headers=headers)
+    print("URL:", url)
+    print("Status:", response.status_code)
+    print("Respuesta:", response.text)
 
-    response = requests.post(
-        url=f"{URL_SERVICE}{KITS_PATH}",
-        json=kit_data,
-        headers=headers
-    )
+    return response
+response = create_user()
+try:
+    print(response.json())
+except ValueError:
+    print("Error al decodificar JSON. Respuesta fue:")
+    print(response.text)
 
-    response.raise_for_status()
-    return response.json()
-
-def get_cards():
-    response = requests.get(f"{URL_SERVICE}{CARDS_PATH}")
-    response.raise_for_status()
-    return response.json()
