@@ -1,5 +1,5 @@
 import requests
-from configuration import URL_SERVICE
+from configuration import URL_SERVICE, CREATE_USER_PATH, KITS_PATH, CARDS_PATH
 
 def create_user():
     user_data = {
@@ -7,7 +7,7 @@ def create_user():
     "phone": "+573186542187",
     "address": "cra 34 n52 - 21"
     }
-    response = requests.post(f"{URL_SERVICE}/users/",json=user_data)
+    response = requests.post(f"{URL_SERVICE}{CREATE_USER_PATH}",json=user_data)
     response.raise_for_status()
     return response.json()["authToken"]
 
@@ -17,7 +17,7 @@ def create_kit(auth_token, kit_data):
     }
 
     response = requests.post(
-        url=f"{URL_SERVICE}/kits",
+        url=f"{URL_SERVICE}{KITS_PATH}",
         json=kit_data,
         headers=headers
     )
@@ -25,3 +25,7 @@ def create_kit(auth_token, kit_data):
     response.raise_for_status()
     return response.json()
 
+def get_cards():
+    response = requests.get(f"{URL_SERVICE}{CARDS_PATH}")
+    response.raise_for_status()
+    return response.json()
