@@ -34,7 +34,7 @@ print(response_user_table.status_code)
 print(response_user_table.text)
 
 # Función para crear un kit nuevo
-def create_kit(kit):
+def post_new_client_kit(kit):
 
     current_headers = headers.copy()
     current_headers["Authorization"] = "Bearer " + response.json()["authToken"]
@@ -42,6 +42,6 @@ def create_kit(kit):
                          json= kit,
                          headers= current_headers)
 
-response_kit = create_kit(kit_body)
+response_kit = post_new_client_kit(kit_body)
 print(response_kit.status_code)
 print(response_kit.text)
