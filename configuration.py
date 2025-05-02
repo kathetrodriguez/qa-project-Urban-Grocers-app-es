@@ -1,3 +1,5 @@
-URL_SERVICE = "https://cnt-befe7123-880a-43ad-99f5-4dc43966ab98.containerhub.tripleten-services.com"
+URL_SERVICE = "https://cnt-4741c5fd-e2e2-46ba-ad4f-939448dc660b.containerhub.tripleten-services.com"
 CREATE_USER_PATH = "/api/v1/users"
 KITS_PATH = "/api/v1/kits"
+DOC_PATH = "/docs/"
+USERS_TABLE_PATH = "/api/db/resources/user_model.csv"
