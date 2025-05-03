@@ -7,7 +7,7 @@ user_info = {
     "address": "Calle de la fatiga, 123"
     }
 
-auth_token = '22794c69-f6e0-4497-a53f-8589318fe287'
+auth_token = 'cf59bd57-c0d9-43c4-bdfc-97fcd76f16b8'
 
 kit_body = {
        "name": "La colombia",
