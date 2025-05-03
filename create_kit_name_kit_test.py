@@ -73,4 +73,18 @@ def test_create_kit_name_with_special_characters():
     # Verificamos que la respuesta sea 201 (éxito)
     assert response.status_code == 201, f"Esperado 201 pero se obtuvo {response.status_code}"
     assert response.json()["name"] == kit_body["name"], "El campo 'name' no coincide"
+
+# Prueba 6 	    Se permiten espacios: kit_body = { "name": " A Aaa " }
+
+kit_body_with_spaces = {"name": " A Aaa "}
+
+def test_create_kit_name_with_spaces():
+    # Enviamos un nombre con espacios
+    response = post_new_client_kit(kit_body_with_spaces)
+
+    # Verificamos que la respuesta sea 201 (creado con éxito)
+    assert response.status_code == 201, f"Esperado 201 pero se obtuvo {response.status_code}"
+    response_json = response.json()
+    assert response_json["name"] == kit_body_with_spaces["name"], "El nombre en la respuesta no coincide con el enviado"
+
     
