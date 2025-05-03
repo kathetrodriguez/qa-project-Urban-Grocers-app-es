@@ -47,4 +47,11 @@ def test_create_kit_name_with_511_characters():
     # Comprobamos que el nombre en la respuesta sea igual al enviado
     assert response.json()["name"] == kit_body_name_limit_511["name"], "El campo 'name' no coincide"
 
+# Prueba #3 	El número de caracteres es menor que la cantidad permitida (0): kit_body = { "name": "" }
+def test_create_kit_name_with_0_characters():
+    # Enviamos la solicitud con un nombre vacío
+    kit_body = {"name": ""}
+    response = post_new_client_kit(kit_body)
 
+    # Verificamos que el código de estado sea 400 (error por nombre inválido)
+    assert response.status_code == 400, f"Esperado 400 pero se obtuvo {response.status_code}"
