@@ -63,3 +63,14 @@ def test_create_kit_name_with_more_than_512_characters():
 
     # Verificamos que la respuesta sea 400 (error por exceso de caracteres)
     assert response.status_code == 400, f"Esperado 400 pero se obtuvo {response.status_code}"
+
+# Prueba 5      Se permiten caracteres especiales: kit_body = { "name": ""№%@"," }
+def test_create_kit_name_with_special_characters():
+    # Cuerpo con caracteres especiales
+    kit_body = {"name": "№%@"}
+    response = post_new_client_kit(kit_body)
+
+    # Verificamos que la respuesta sea 201 (éxito)
+    assert response.status_code == 201, f"Esperado 201 pero se obtuvo {response.status_code}"
+    assert response.json()["name"] == kit_body["name"], "El campo 'name' no coincide"
+    
