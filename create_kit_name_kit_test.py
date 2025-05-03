@@ -5,6 +5,20 @@ import requests
 import pytest
 
 
+def positive_assert(kit_body):
+    response = post_new_client_kit(kit_body)
+
+    # Verificamos que el código de respuesta sea 201
+    assert response.status_code == 201, f"Esperado 201 pero se obtuvo {response.status_code}"
+
+    # Verificamos que el campo "name" en la respuesta coincida con el enviado
+    response_json = response.json()
+    assert response_json["name"] == kit_body["name"], (
+        f'El valor de "name" en la respuesta ({response_json["name"]}) '
+        f'no coincide con el enviado ({kit_body["name"]})'
+    )
+
+
 def test_user_authenticated_successfully():
     # Construye la URL completa para acceder a la tabla de usuarios
     url = URL_SERVICE + USERS_TABLE_PATH
@@ -87,4 +101,10 @@ def test_create_kit_name_with_spaces():
     response_json = response.json()
     assert response_json["name"] == kit_body_with_spaces["name"], "El nombre en la respuesta no coincide con el enviado"
 
-    
+# Prueba 7      Se permiten números: kit_body = { "name": "123" }
+
+kit_body_name_numbers = {
+    "name": "123"
+}
+def test_create_kit_name_with_numbers():
+    positive_assert(kit_body_name_numbers)
