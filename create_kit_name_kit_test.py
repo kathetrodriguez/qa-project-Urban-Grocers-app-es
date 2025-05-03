@@ -55,3 +55,11 @@ def test_create_kit_name_with_0_characters():
 
     # Verificamos que el código de estado sea 400 (error por nombre inválido)
     assert response.status_code == 400, f"Esperado 400 pero se obtuvo {response.status_code}"
+
+# Prueba 4  	El número de caracteres es mayor que la cantidad permitida (512)
+def test_create_kit_name_with_more_than_512_characters():
+    # Enviamos el cuerpo con más de 512 caracteres
+    response = post_new_client_kit(kit_body_name_no_limit_512)
+
+    # Verificamos que la respuesta sea 400 (error por exceso de caracteres)
+    assert response.status_code == 400, f"Esperado 400 pero se obtuvo {response.status_code}"
