@@ -18,6 +18,10 @@ def positive_assert(kit_body):
         f'no coincide con el enviado ({kit_body["name"]})'
     )
 
+def negative_assert(kit_body):
+    response = post_new_client_kit(kit_body)
+    print("Respuesta del servidor:", response.status_code, response.text)
+    assert response.status_code == 400, f"Esperado 400 pero se obtuvo {response.status_code}"
 
 def test_user_authenticated_successfully():
     # Construye la URL completa para acceder a la tabla de usuarios
@@ -108,3 +112,9 @@ kit_body_name_numbers = {
 }
 def test_create_kit_name_with_numbers():
     positive_assert(kit_body_name_numbers)
+
+# Prueba 8 	El parámetro no se pasa en la solicitud: kit_body = { }
+
+def test_create_kit_without_name_parameter():
+    kit_body = {}  # No se incluye el parámetro "name"
+    negative_assert(kit_body)
