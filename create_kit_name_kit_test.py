@@ -118,3 +118,11 @@ def test_create_kit_name_with_numbers():
 def test_create_kit_without_name_parameter():
     kit_body = {}  # No se incluye el parámetro "name"
     negative_assert(kit_body)
+
+# Prueba 9: 	Se ha pasado un tipo de parámetro diferente (número): kit_body = { "name": 123 }
+
+def test_create_kit_with_number_as_name():
+    kit_body = {
+        "name": 123  # tipo de dato incorrecto (entero en vez de string)
+    }
+    negative_assert(kit_body)
