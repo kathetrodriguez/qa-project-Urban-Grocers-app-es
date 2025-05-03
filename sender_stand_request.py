@@ -6,10 +6,9 @@ from configuration import URL_SERVICE, CREATE_USER_PATH, KITS_PATH, USERS_TABLE_
 
 def create_user():
     url = URL_SERVICE + CREATE_USER_PATH
-    headers = {
-        "Content-Type": "application/json"
-    }
+
     response = requests.post(url, json=user_info, headers=headers)
+
     print("URL:", url)
     print("Status:", response.status_code)
     print("Respuesta:", response.text)
@@ -17,7 +16,7 @@ def create_user():
     return response
 response = create_user()
 try:
-    print(response.json())
+    print("authToken:", response.json().get("authToken"))
 except ValueError:
     print("Error al decodificar JSON. Respuesta fue:")
     print(response.text)
@@ -26,7 +25,6 @@ except ValueError:
 
 def get_users_table():
     return requests.get(URL_SERVICE + USERS_TABLE_PATH)
-
 
 response_user_table = get_users_table()
 
