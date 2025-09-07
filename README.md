@@ -5,13 +5,13 @@ Este repositorio contiene pruebas automáticas para la aplicación Urban Grocers
 El objetivo es comprobar que la aplicación responda correctamente cuando se intenta crear un kit con diferentes tipos de nombres.
 
 📁 Estructura del proyecto
-qa-project-Urban-Grocers-app-es/
-│── configuration.py           # Configuración general (ejemplo: URL base)
-│── create_kit_name_kit_test.py # Pruebas principales de creación de kits
-│── data.py                     # Datos de apoyo (encabezados, cuerpos de solicitud, etc.)
-│── sender_stand_request.py     # Funciones para enviar solicitudes a la API
-│── README.md                   # Este archivo
-└── .gitignore                  # Archivos excluidos del repositorio
+📁 qa-project-Urban-Grocers-app-es/
+├── ⚙️ configuration.py        # Configuración general (ejemplo: URL base)
+├── 🧪 create_kit_name_kit_test.py # Pruebas principales de creación de kits
+├── 📄 data.py                  # Datos de apoyo (encabezados, cuerpos de solicitud, etc.)
+├── 📤 sender_stand_request.py  # Funciones para enviar solicitudes a la API
+├── 📝 README.md                # Este archivo
+└── 🚫 .gitignore               # Archivos excluidos del repositorio
 
 
 ✅ Funcionalidad probada
