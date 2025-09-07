@@ -1,78 +1,62 @@
-🧪 Proyecto de Pruebas Automatizadas – Urban Grocers App
+🧪 Proyecto de pruebas automatizadas – Urban Grocers App
 
-Este repositorio contiene pruebas automáticas para la aplicación Urban Grocers, enfocadas en la funcionalidad de creación de kits de productos (paquetes de artículos).
+Este proyecto contiene un conjunto de pruebas automáticas para verificar que la aplicación Urban Grocers funcione correctamente cuando los usuarios crean un kit de productos (una especie de paquete con varios artículos).
 
-El objetivo es comprobar que la aplicación responda correctamente cuando se intenta crear un kit con diferentes tipos de nombres.
+📁 ¿Qué hay en el proyecto?
 
-📁 Estructura del proyecto
-"""📁 qa-project-Urban-Grocers-app-es/
-├── ⚙️ configuration.py        # Configuración general (ejemplo: URL base)
-├── 🧪 create_kit_name_kit_test.py # Pruebas principales de creación de kits
-├── 📄 data.py                  # Datos de apoyo (encabezados, cuerpos de solicitud, etc.)
-├── 📤 sender_stand_request.py  # Funciones para enviar solicitudes a la API
-├── 📝 README.md                # Este archivo
-└── 🚫 .gitignore               # Archivos excluidos del repositorio"""
+Dentro de la carpeta principal encontrarás:
 
+configuration.py → Datos de configuración, como la dirección de la aplicación.
 
-✅ Funcionalidad probada
+create_kit_name_kit_test.py → El archivo que contiene las pruebas principales.
 
-Se validan distintos casos para el campo "name" del kit:
+data.py → Información extra que se usa en las pruebas (ejemplo: encabezados, textos).
 
-#	Descripción	Resultado esperado
-1	Nombre válido de 1 caracter	201
-2	Nombre de 511 caracteres	201
-3	Nombre de 512 caracteres	400
-4	Nombre de 513 caracteres	400
-5	Uso de caracteres especiales	201
-6	Nombre con espacios	201
-7	Nombre compuesto solo por números	201
-8	Falta el parámetro "name"	400
-9	"name" con tipo incorrecto (número)	❌ 201 (bug encontrado)
+sender_stand_request.py → Funciones que se encargan de enviar las solicitudes a la aplicación.
+
+README.md → Explicación del proyecto (este archivo).
+
+.gitignore → Archivos que no se guardan en el repositorio.
+
+✅ ¿Qué estamos probando?
+
+Se revisa que el campo “nombre del kit” funcione bien en diferentes situaciones.
+Por ejemplo:
+
+Nombre con 1 solo carácter → debería funcionar.
+
+Nombre con 511 caracteres → debería funcionar.
+
+Nombre con 512 o más caracteres → debería dar error.
+
+Nombre con símbolos o caracteres especiales → debería funcionar.
+
+Nombre solo con espacios → debería funcionar.
+
+Nombre con números → debería funcionar.
+
+Cuando falta el nombre → debería dar error.
+
+Cuando el nombre no es un texto sino un número → debería dar error, pero aquí se encontró un bug (la aplicación lo acepta como válido).
+
 🛠️ Tecnologías utilizadas
 
 Python 3.11+
 
-Pytest
+Pytest (herramienta para correr las pruebas)
 
-Requests
+Requests (para comunicarse con la aplicación)
 
-▶️ Ejecución de las pruebas
+▶️ ¿Cómo se ejecutan las pruebas?
 
-Clonar el repositorio:
+Descargar el proyecto.
 
-git clone https://github.com/tu_usuario/qa-project-Urban-Grocers-app-es.git
-cd qa-project-Urban-Grocers-app-es
+Instalar las dependencias necesarias.
 
+Asegurarse de que el servidor de Urban Grocers esté encendido.
 
-Instalar dependencias:
-
-pip install pytest requests
-
-
-Ejecutar todas las pruebas:
-
-pytest create_kit_name_kit_test.py
-
-
-Ejecutar una prueba específica:
-
-pytest create_kit_name_kit_test.py::nombre_de_la_funcion
-
-⚠️ Requisitos previos
-
-Tener el servidor de Urban Grocers encendido.
-
-Verificar que la URL base esté configurada en configuration.py.
-
-Contar con los archivos sender_stand_request.py y data.py en el proyecto.
+Ejecutar las pruebas con un comando sencillo en la terminal.
 
 ✍️ Autor
 
-Proyecto desarrollado por Katherine Torres Rodríguez.
-
--Verifica que la URL base esté correctamente configurada en el archivo configuration.py.
-
--Los archivos sender_stand_request.py y data.py deben estar presentes y correctamente importados en los tests.
-
-✍️ Autor =
 Proyecto desarrollado por Katherine Torres Rodríguez.
