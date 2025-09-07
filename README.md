@@ -1,5 +1,6 @@
 **🧪 Proyecto de pruebas automatizadas – Urban Grocers App
 **
+
 Este proyecto contiene un conjunto de pruebas automáticas para verificar que la aplicación Urban Grocers funcione correctamente cuando los usuarios crean un kit de productos (una especie de paquete con varios artículos).
 
 **🎯 Objetivos**
