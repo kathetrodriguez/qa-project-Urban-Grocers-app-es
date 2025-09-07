@@ -1,57 +1,73 @@
-# 🧪 QA Automatizada - Proyecto Urban Grocers App
+🧪 Proyecto de Pruebas Automatizadas – Urban Grocers App
 
-Este repositorio contiene pruebas automatizadas para la funcionalidad de creación de kits de productos en la aplicación **Urban Grocers**
+Este repositorio contiene pruebas automáticas para la aplicación Urban Grocers, enfocadas en la funcionalidad de creación de kits de productos (paquetes de artículos).
 
-## 📁 Estructura del proyecto
+El objetivo es comprobar que la aplicación responda correctamente cuando se intenta crear un kit con diferentes tipos de nombres.
 
+📁 Estructura del proyecto
 qa-project-Urban-Grocers-app-es/
-│
-├── configuration.py # Configuración general del entorno (URL base, etc.)
-├── create_kit_name_kit_test.py # Archivo principal de pruebas de creación de kits
-├── data.py # Cuerpos de solicitud, headers y datos auxiliares
-├── sender_stand_request.py # Funciones para enviar solicitudes HTTP a la API
-├── README.md # Este archivo
-└── .gitignore # Exclusiones de Git
+│── configuration.py           # Configuración general (ejemplo: URL base)
+│── create_kit_name_kit_test.py # Pruebas principales de creación de kits
+│── data.py                     # Datos de apoyo (encabezados, cuerpos de solicitud, etc.)
+│── sender_stand_request.py     # Funciones para enviar solicitudes a la API
+│── README.md                   # Este archivo
+└── .gitignore                  # Archivos excluidos del repositorio
 
-## ✅ Funcionalidad probada
+✅ Funcionalidad probada
 
-Se prueba la **creación de un kit de productos**, evaluando distintos casos para el campo `"name"`:
+Se validan distintos casos para el campo "name" del kit:
 
-| # | Descripción | Resultado esperado     |
-|---|-------------|------------------------|
-| 1 | Nombre válido de 1 caracter | 201                    |
-| 2 | Nombre de 511 caracteres | 201                    |
-| 3 | Nombre de 512 caracteres | 400                    |
-| 4 | Nombre de 513 caracteres | 400                    |
-| 5 | Caracteres especiales | 201                    |
-| 6 | Espacios en el nombre | 201                    |
-| 7 | Números como string | 201                    |
-| 8 | Falta el parámetro `"name"` | 400                    |
-| 9 | `"name"` con tipo incorrecto (número) | ❌ 201 (bug encontrado) |
+#	Descripción	Resultado esperado
+1	Nombre válido de 1 caracter	201
+2	Nombre de 511 caracteres	201
+3	Nombre de 512 caracteres	400
+4	Nombre de 513 caracteres	400
+5	Uso de caracteres especiales	201
+6	Nombre con espacios	201
+7	Nombre compuesto solo por números	201
+8	Falta el parámetro "name"	400
+9	"name" con tipo incorrecto (número)	❌ 201 (bug encontrado)
+🛠️ Tecnologías utilizadas
 
-## 🧰 Tecnologías utilizadas
+Python 3.11+
 
-- Python 3.11+
-- Pytest
-- Requests
+Pytest
 
-▶️ Pasos para ejecutar las pruebas
-Sigue estos pasos para ejecutar correctamente las pruebas automatizadas del proyecto:
+Requests
 
-1. Clona el repositorio (si aún no lo tienes):
+▶️ Ejecución de las pruebas
+
+Clonar el repositorio:
+
 git clone https://github.com/tu_usuario/qa-project-Urban-Grocers-app-es.git
 cd qa-project-Urban-Grocers-app-es
-2. Instala las dependencias necesarias (si aún no las tienes):
+
+
+Instalar dependencias:
+
 pip install pytest requests
-3. Ejecuta todas las pruebas del archivo de test:
+
+
+Ejecutar todas las pruebas:
+
 pytest create_kit_name_kit_test.py
-4. Ejecuta una prueba específica:
-pytest create_kit_name_kit_test.py::nombre_de_la_funcion_de_prueba
-Ejemplo: pytest create_kit_name_kit_test.py::test_create_kit_with_empty_name
+
+
+Ejecutar una prueba específica:
+
+pytest create_kit_name_kit_test.py::nombre_de_la_funcion
 
 ⚠️ Requisitos previos
 
--Asegúrate de que el servidor de Urban Grocers (contenedor) esté activo antes de ejecutar las pruebas.
+Tener el servidor de Urban Grocers encendido.
+
+Verificar que la URL base esté configurada en configuration.py.
+
+Contar con los archivos sender_stand_request.py y data.py en el proyecto.
+
+✍️ Autor
+
+Proyecto desarrollado por Katherine Torres Rodríguez.
 
 -Verifica que la URL base esté correctamente configurada en el archivo configuration.py.
 
