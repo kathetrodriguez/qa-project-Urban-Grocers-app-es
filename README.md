@@ -13,6 +13,7 @@ qa-project-Urban-Grocers-app-es/
 │── README.md                   # Este archivo
 └── .gitignore                  # Archivos excluidos del repositorio
 
+
 ✅ Funcionalidad probada
 
 Se validan distintos casos para el campo "name" del kit:
