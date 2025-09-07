@@ -1,5 +1,4 @@
-**🧪 Proyecto de pruebas automatizadas – Urban Grocers App
-**
+🧪 **Proyecto de pruebas automatizadas – Urban Grocers App**
 
 Este proyecto contiene un conjunto de pruebas automáticas para verificar que la aplicación Urban Grocers funcione correctamente cuando los usuarios crean un kit de productos (una especie de paquete con varios artículos).
 
@@ -71,6 +70,6 @@ Asegurarse de que el servidor de Urban Grocers esté encendido.
 
 Ejecutar las pruebas con un comando sencillo en la terminal.
 
-**✍️ Autor
-**
+**✍️ Autor**
+
 Proyecto desarrollado por Katherine Torres Rodríguez.
